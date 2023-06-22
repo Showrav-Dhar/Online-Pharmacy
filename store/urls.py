@@ -4,8 +4,8 @@ from store import views
 
 urlpatterns = [
     # leave as empty string for base url
-    path('',views.store, name="store"), # this is the home page
-    path('cart/',views.cart, name="cart"),
-    path('checkout/',views.checkout, name="checkout")
+    path('',views.store, name="Store"), # this is the home page
+    path('cart/',views.cart, name="Cart"),
+    path('checkout/',views.checkout, name="Checkout")
     #try changing the name if everything works fine after running server
 ]
