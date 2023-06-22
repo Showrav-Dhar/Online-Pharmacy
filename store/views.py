@@ -16,3 +16,7 @@ def checkout(request):
     context = {}
     return render(request,'store/checkout.html',context)
 
+def index(request):
+    diction = {}
+    return render(request, 'store/index.html', context=diction)
+
