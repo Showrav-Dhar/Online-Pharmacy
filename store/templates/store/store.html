@@ -1,5 +1,3 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +16,8 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
      {% load static %}
-     <!-- <link rel="stylesheet" href="{ % static 'style.css' % }"> -->
-     <link rel="stylesheet" href="/static/style.css">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+     {% comment %} linked the statc folder here to render the css filed // showrav {% endcomment %}
 
     <title>EDU E_COMMERECE</title>
 </head>
@@ -28,7 +26,7 @@
     <div class="container">
 
         <h1>hi showrov opi</h1>
-
+        
     </div>
 </body>
 </html>
