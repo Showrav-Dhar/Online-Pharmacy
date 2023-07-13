@@ -9,3 +9,5 @@ urlpatterns = [
     path('checkout/',views.checkout, name="Checkout")
     #try changing the name if everything works fine after running server
 ]
+
+# main html e url e always name gula ekhane jerkom ase oita dite hobe
