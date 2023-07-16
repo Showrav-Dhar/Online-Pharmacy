@@ -19,7 +19,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True,blank=False)  # if a product is digital then this field will be true
-    #image
+    image = models.ImageField(null=True,blank=True)
 
     def __str__(self):
         return self.name
