@@ -9,8 +9,8 @@ def store(request):
     return render(request,'store/store.html',context)
 
 
-def cart(request):
-    customer = None
+def cart(request): #this has some problems , may not work correctly
+    # customer = None
 
     if request.user.is_authenticated:
         customer, created = Customer.objects.get_or_create(user=request.user)#used gpt
@@ -19,8 +19,9 @@ def cart(request):
         items = order.orderitem_set.all()
     else:
         items = []
+        order = {'get_cart_total':0,'get_cart_items':0}
 
-    context = {'items':items}
+    context = {'items':items, 'order':order}
     return render(request,'store/cart.html',context)
 
 
