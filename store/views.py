@@ -10,9 +10,11 @@ def store(request):
 
 
 def cart(request):
-    #error ashle name customer,order name gula choto hat er kore check koro
+    customer = None
+
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer, created = Customer.objects.get_or_create(user=request.user)#used gpt
+        # customer = request.user.customer
         order , created = Order.objects.get_or_create(customer = customer,complete = False)
         items = order.orderitem_set.all()
     else:
