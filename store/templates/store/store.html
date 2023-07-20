@@ -1,31 +1,36 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-
-    <div class="row">
-        {% for Product in products %}
-        <!-- <div class="col-lg-4">
-            <img class="thumbnail" src="{{Product.imageURL}}" alt="">
-            <div class="box-element product">
-                <h6><strong>{{Product.name}}</strong></h6>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn">Add To Cart</button>
-                <a class="btn btn-outline-success" href="#">View</a>
-                <h4 style="display: inline-block;float: right;">BDT {{Product.price|floatformat:2}} ৳</h4>
+    <div class="container-lg my-5">
+        <div class="row gy-4">
+            {% for Product in products %}
+            <!-- <div class="col-lg-4">
+                <img class="thumbnail" src="{{Product.imageURL}}" alt="">
+                <div class="box-element product">
+                    <h6><strong>{{Product.name}}</strong></h6>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Add To Cart</button>
+                    <a class="btn btn-outline-success" href="#">View</a>
+                    <h4 style="display: inline-block;float: right;">BDT {{Product.price|floatformat:2}} ৳</h4>
+                </div>
+            </div> -->
+            <!-- fixed part-->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{Product.imageURL}}" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">{{Product.name}}</h5>
+                      <hr>
+                      <h5><p class="card-text">BDT {{Product.price|floatformat:2}} ৳</p></h5>
+                      <a href="#" class="btn btn-primary">Add To Cart</a>
+                      <a class="btn btn-outline-success" href="#">View</a>
+                    </div>
+                </div>
             </div>
-        </div> -->
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{Product.imageURL}}"alt="">
-            <div class="card-body">
-              <h5 class="card-title">{{Product.name}}</h5>
-              <hr>
-              <h5><p class="card-text">BDT {{Product.price|floatformat:2}} ৳</p></h5>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
-              <a class="btn btn-outline-success" href="#">View</a>
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+    
 
 {% endblock content %}
 
