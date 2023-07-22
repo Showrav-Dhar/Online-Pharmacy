@@ -29,7 +29,8 @@ a{
 }
 
 .bg-dark{
-	background-color: #4f868c!important;
+	background-color: #2aaf62ce!important;
+	/* banner colour */
 }
 
 #cart-icon{
@@ -55,8 +56,8 @@ a{
 }
 
 .btn{
-	border-radius: 0;
-	background-color: #4f868c!important;
+	border-radius: 10;
+	background-color: #1573bf!important;
 	color: #fff;
 }
 

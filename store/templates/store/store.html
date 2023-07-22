@@ -22,8 +22,9 @@
                       <h5 class="card-title">{{Product.name}}</h5>
                       <hr>
                       <h5><p class="card-text">BDT {{Product.price|floatformat:2}} ৳</p></h5>
-                      <a href="#" class="btn btn-primary">Add To Cart</a>
-                      <a class="btn btn-outline-success" href="#">View</a>
+                      {% comment %} <button href="#" class="btn btn-outline-success add-btn">Add To Cart</button> {% endcomment %}
+                      <button class="btn btn-outline-success add-btn">Add To Cart</button>
+                      <a class="btn btn-outline-info" href="#">View</a>
                     </div>
                 </div>
             </div>
