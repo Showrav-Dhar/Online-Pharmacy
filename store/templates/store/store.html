@@ -19,12 +19,13 @@
                 <div class="card h-100">
                     <img class="card-img-top" src="{{Product.imageURL}}" class="img-fluid">
                     <div class="card-body">
-                      <h5 class="card-title">{{Product.name}}</h5>
+                      <h4 class="card-title">{{Product.name}}</h4>
                       <hr>
-                      <h5><p class="card-text">BDT {{Product.price|floatformat:2}} ৳</p></h5>
                       {% comment %} <button href="#" class="btn btn-outline-success add-btn">Add To Cart</button> {% endcomment %}
                       <button class="btn btn-outline-success add-btn">Add To Cart</button>
                       <a class="btn btn-outline-info" href="#">View</a>
+                      {% comment %} <h5><p class="card-text">BDT {{Product.price|floatformat:2}} ৳</p></h5> {% endcomment %}
+                      <h4 style="display: inline-block;float: right;">BDT {{Product.price|floatformat:2}} ৳</h4>
                     </div>
                 </div>
             </div>
