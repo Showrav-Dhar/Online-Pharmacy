@@ -16,15 +16,13 @@
             </div> -->
             <!-- fixed part-->
             <div class="col-md-4">
-                <div class="card h-100">
+                <div class="card h-100 box-element product">
                     <img class="card-img-top" src="{{Product.imageURL}}" class="img-fluid">
                     <div class="card-body">
                       <h4 class="card-title">{{Product.name}}</h4>
                       <hr>
-                      {% comment %} <button href="#" class="btn btn-outline-success add-btn">Add To Cart</button> {% endcomment %}
-                      <button class="btn btn-outline-success add-btn">Add To Cart</button>
-                      <a class="btn btn-outline-info" href="#">View</a>
-                      {% comment %} <h5><p class="card-text">BDT {{Product.price|floatformat:2}} ৳</p></h5> {% endcomment %}
+                      <button data-product={{Product.id}} data-action=" add" class="btn btn-outline-secondary add-btn update-cart">Add To Cart</button>
+                      <a class="btn btn-outline-success" href="#">View</a>
                       <h4 style="display: inline-block;float: right;">BDT {{Product.price|floatformat:2}} ৳</h4>
                     </div>
                 </div>
