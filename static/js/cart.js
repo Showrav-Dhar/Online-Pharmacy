@@ -14,3 +14,4 @@ for(var i = 0; i<updateBtns.length; i++){
         }
     })
 }
+// ajke push korlam 
