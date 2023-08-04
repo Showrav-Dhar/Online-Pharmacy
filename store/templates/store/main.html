@@ -18,22 +18,31 @@
     <script type="text/javascript">
       var user = '{{request.user}}'
 
-      function getToken(name){
-      var cookieValue = null;
-      if (document.cookie && document.cookie !==' '){
-        var cookies = document.cookie.split(';');
-        for (var i=0; i < cookies.length; i++){
-            var cookie = cookies[i].trim();
-            
-            if (cookie.substring(0, name.length + 1) === (name + '=')){
+      function getCookie(name) {
+      let cookieValue = null;
+
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+
                 break;
             }
+        }
     }
-}
+
     return cookieValue;
 }
-var csrftoken = getToken('csrftoken');
+
+// Get the CSRF token using the function and assign it to the variable csrftoken
+var csrftoken = getCookie('csrftoken');
+
+
+
 
     </script>
 
@@ -63,7 +72,7 @@ var csrftoken = getToken('csrftoken');
                 <div class="d-flex align-items-center justify-content-between">
                   <img  id="cart-icon" src="{% static 'images/cart.png' %}">
                 
-                  <p id="cart-total">0</p>
+                  <p id="cart-total">{{cartItems}}</p>
                 </div>
               </a>
 
