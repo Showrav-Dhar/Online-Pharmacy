@@ -30,9 +30,9 @@
 						<div class="form-field">
 							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
 						</div>
-						<div class="form-field">
+						<!-- <div class="form-field">
 							<input class="form-control" type="text" name="country" placeholder="Zip code..">
-						</div>
+						</div> -->
                 </div>
 
                 <hr>
@@ -43,6 +43,8 @@
 
          <div class="box-element hidden" id="payment-info"> <!--class="box-element hidden" ebhabe likhle uporer form fillup na kora porjnto payment option dekhabena , add bkash too -->
             <small>Paypal Option</small>
+            <!-- <button id ="make-payment">Make Payement</button> -->
+            <button type="button" class="btn btn-warning" id ="make-payment">Make Payement</button>
         </div>
     </div>
 
@@ -74,6 +76,18 @@
         document.getElementById('shipping-info').innerHTML = ''
     }
 
+    if(user != 'AnonymousUser'){
+        document.getElementById('user-info').innerHTML = ''
+    }
+
+    // if(shipping == 'False' && user != 'AnonymousUser'){//is not that important feature
+    //     //hide entire form is user is logged in and shipping is false
+    //     document.getElementById('form-wrapper').classList.add("hidden");
+    //     //show payment if logged in user  wants to by something that doesnot needs shipping - digital product
+    //     document.getElementById('payement-info').classList.remove("hidden");
+    // }
+
+
     var form = document.getElementById('form')
 
     form.addEventListener('submit',function(e){
@@ -82,6 +96,14 @@
         document.getElementById('form-button').classList.add('hidden')
         document.getElementById('payment-info').classList.remove('hidden')
     })
+
+    document.getElementById('make-payment').addEventListener('click',function(e){
+        submitFromData()
+    })
+
+    function submitFromData(){
+        console.log('Payment Button Clicked')
+    }
 
 </script>
 
