@@ -26,7 +26,7 @@ function updateUserOrder(productId,action){
             'Content-Type' : 'application/json',
             'X-CSRFTOKEN': csrftoken,
         },
-        body: JSON.stringify({'productId': productId,'action':action})
+        body: JSON.stringify({'productId': productId,'action': action})
     })
 
     .then((response)=>{
@@ -35,5 +35,8 @@ function updateUserOrder(productId,action){
 
     .then((data)=>{
         console.log('data', data)
+        location.reload()
     })
 }
+
+//cart working fine

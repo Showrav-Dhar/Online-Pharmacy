@@ -2,106 +2,129 @@
 {% load static %}
 
 <html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!-- for responsivness accross every device -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
+    />
 
     <title>E-Pharma</title>
 
     <!-- bootstrap css pulgin -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 
     <script type="text/javascript">
-      var user = '{{request.user}}'
+      var user = "{{request.user}}";
+      // changes by dip video 3 time 23.43 sec
+      function getToken(name) {
+        let cookieValue = null;
+        // var cookieValue = null;
 
-      function getCookie(name) {
-      let cookieValue = null;
-
-      if (document.cookie && document.cookie !== '') {
-          var cookies = document.cookie.split(';');
+        if (document.cookie && document.cookie !== "") {
+          var cookies = document.cookie.split(";");
           for (let i = 0; i < cookies.length; i++) {
-              var cookie = cookies[i].trim();
+            var cookie = cookies[i].trim();
 
-              // Does this cookie string begin with the name we want?
-              if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+              cookieValue = decodeURIComponent(
+                cookie.substring(name.length + 1)
+              );
 
-                break;
+              break;
             }
+          }
         }
-    }
 
-    return cookieValue;
-}
+        return cookieValue;
+      }
 
-// Get the CSRF token using the function and assign it to the variable csrftoken
-var csrftoken = getCookie('csrftoken');
-
-
-
-
+      // Get the CSRF token using the function and assign it to the variable csrftoken
+      var csrftoken = getToken("csrftoken");
     </script>
+  </head>
 
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
+      <!--  modified dark navbar -->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Store' %}"> E-Pharma </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-</head>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{% url 'Store' %}"
+                >Store</a
+              >
+            </li>
+          </ul>
+          <div
+            class="py-0 mb-2 d-flex align-items-center justify-content-between"
+          >
+            <a class="btn btn-outline-primary login_btn" href="#">Login</a>
 
-<body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1"> <!--  modified dark navbar -->
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'Store' %}"> E-Pharma </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <a href="{% url 'Cart' %}">
+              <div class="d-flex align-items-center justify-content-between">
+                <img id="cart-icon" src="{% static 'images/cart.png' %}" />
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'Store' %}">Store</a>
-              </li>
-
-            </ul>
-            <div class="py-0 mb-2 d-flex align-items-center justify-content-between">
-              <a  class="btn btn-outline-primary login_btn" href="#">Login</a>
-             
-              <a href="{% url 'Cart' %}">
-                <div class="d-flex align-items-center justify-content-between">
-                  <img  id="cart-icon" src="{% static 'images/cart.png' %}">
-                
-                  <p id="cart-total">{{cartItems}}</p>
-                </div>
-              </a>
-
-
-            </div>
-            <!-- <div class="form-inline my-2 my-lg-0">
+                <p id="cart-total">{{cartItems}}</p>
+              </div>
+            </a>
+          </div>
+          <!-- <div class="form-inline my-2 my-lg-0">
               <a href="#"class="btn btn-warning">Login</a>
               
               
             
            </div> -->
-          </div>
-
         </div>
+      </div>
     </nav>
 
     <div class="container">
-        <br>
-        {% block content %}
-
-        {% endblock content %}
+      <br />
+      {% block content %} {% endblock content %}
     </div>
 
-
-
     <!-- bootstrap js pulgin -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-    <script type = "text/javascript" src ="{% static 'js/cart.js' %}"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+  </body>
 </html>
