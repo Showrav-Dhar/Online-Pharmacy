@@ -65,6 +65,7 @@ a{
 	width: 100px;
 }
 
+
 .form-field{
 	width:250px;
 	display: inline-block;
@@ -107,3 +108,66 @@ a{
 	color: white;
 	border-color: #4f868c !important;
 }
+
+.feature_section .feature_container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+			justify-content: space-between;
+	text-align: center;
+  }
+  
+  .feature_section .feature_container .box {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 350px;
+	min-width: 350px;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+			flex-direction: column;
+	-webkit-box-align: center;
+		-ms-flex-align: center;
+			align-items: center;
+	margin: 30px auto;
+  }
+  
+  .feature_section .feature_container .box .img-box {
+	border: 1px solid #000000;
+	width: 85px;
+	padding: 15px;
+	border-radius: 3px;
+  }
+  
+  .feature_section .feature_container .box .img-box svg {
+	width: 100%;
+	height: auto;
+  }
+  
+  .feature_section .feature_container .box .detail-box {
+	margin-top: 15px;
+  }
+  
+  .feature_section .feature_container .box .detail-box h5 {
+	text-transform: uppercase;
+	font-weight: bold;
+  }
+  
+  .feature_section .feature_container .box:hover .img-box {
+	border: 1px solid #10e7f4;
+  }
+  
+  .feature_section .feature_container .box:hover .img-box svg {
+	fill: #10e7f4;
+  }
+
+  .card-img {
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+  }

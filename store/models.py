@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
 
 # Create your models here.
 
@@ -13,10 +14,11 @@ class Customer(models.Model):
     
 
 class Product(models.Model):
-    name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=250, null=True)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True,blank=False)  # if a product is digital then this field will be true
     image = models.ImageField(null=True,blank=True)
+    # image = ResizedImageField(size=[300, 250], upload_to='whatever')
 
     def __str__(self):
         return self.name
