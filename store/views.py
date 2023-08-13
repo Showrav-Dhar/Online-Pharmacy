@@ -6,8 +6,6 @@ from django.http import HttpResponse
 from urllib.parse import unquote
 import datetime
 
-
-
 # Create your views here.
 
 def store(request):
@@ -93,8 +91,7 @@ def updateItem(request):
     res = json.dumps({'success': 1,'msg': 'Item was added successfully!!'})
     return HttpResponse(res,content_type='application/json')
 
-from django.views.decorators.csrf import csrf_exempt
-@csrf_exempt
+
 
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
