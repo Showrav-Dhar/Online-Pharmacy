@@ -6,6 +6,7 @@
     <div class="col-lg-6">
         <div class="box-element" id="form-wrapper">
             <form id = "form">
+                <!-- //CSRF TOKEN  -->
                 {% csrf_token %}
                 <div id = "user-info">
                     <div class="form-field">
@@ -90,7 +91,7 @@
     //     document.getElementById('payement-info').classList.remove("hidden");
     // }
 
-
+    //CSRF TOKEN 
     var form = document.getElementById('form')
 
     csrftoken = form.getElementsByTagName("input")[0].value
