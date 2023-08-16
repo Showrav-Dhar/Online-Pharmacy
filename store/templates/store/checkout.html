@@ -84,13 +84,6 @@
         document.getElementById('user-info').innerHTML = ''
     }
 
-    // if(shipping == 'False' && user != 'AnonymousUser'){//is not that important feature
-    //     //hide entire form is user is logged in and shipping is false
-    //     document.getElementById('form-wrapper').classList.add("hidden");
-    //     //show payment if logged in user  wants to by something that doesnot needs shipping - digital product
-    //     document.getElementById('payement-info').classList.remove("hidden");
-    // }
-
     //CSRF TOKEN 
     var form = document.getElementById('form')
 
@@ -144,13 +137,16 @@
                 'Content-Type':'application/json',
                 'X-CSRFToken' : csrftoken,
             },
-            body : JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+            body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
         })
         
         .then((response) => response.json())
         .then((data) =>{
             console.log('Success :',data);
             alert('Transaction Completed');
+            
+            cart = {}
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
             window.location.href = "{% url 'Store' %}" // after payment user will go to home page
         }
         )
