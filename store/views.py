@@ -80,8 +80,8 @@ def processOrder(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
     
-    else:#guest user
-        # customer, order = guestOrder(request, data)
+    else:#guest user start 
+        #did not use the custom util function
         print('User Not Logged In..')
     
         print('COOKIES: ', request.COOKIES)
@@ -111,6 +111,7 @@ def processOrder(request):
                 order = order,
                 quantity = item['quantity']
             )
+    #guest user end
 
     total = data['form']['total']
     order.transaction_id = transaction_id
