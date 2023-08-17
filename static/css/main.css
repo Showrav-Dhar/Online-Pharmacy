@@ -171,3 +171,13 @@ a{
 	width: 200px;
 	object-fit: cover;
   }
+
+
+  .c-item{
+	height: 500px;
+  }
+
+  .c-img{
+	height: 100%;
+	object-fit: cover;
+  }
