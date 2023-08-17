@@ -5,7 +5,7 @@ import json
 from django.http import HttpResponse
 from urllib.parse import unquote
 import datetime
-from .utils import cookieCart, cartData, guestOrder
+from .utils import cookieCart,cartData
 
 # Create your views here.
 
@@ -67,8 +67,6 @@ def updateItem(request):
     if orderItem.quantity <= 0:
         orderItem.delete()
 
-
-    # return JsonResponse('Item was added', safe=False)
     res = json.dumps({'success': 1,'msg': 'Item was added successfully!!'})
     return HttpResponse(res,content_type='application/json')
 
@@ -82,8 +80,37 @@ def processOrder(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
     
-    else:
-        customer, order = guestOrder(request,data)
+    else:#guest user
+        # customer, order = guestOrder(request, data)
+        print('User Not Logged In..')
+    
+        print('COOKIES: ', request.COOKIES)
+        name = data['form']['name']
+        email = data['form']['email']
+
+        cookieData = cookieCart(request)
+        items = cookieData['items']
+
+        customer, created = Customer.objects.get_or_create(
+            email = email,
+        )
+        customer.name = name
+        customer.save()
+
+
+        order = Order.objects.create(
+            customer = customer,
+            complete = False
+        )
+
+        for item in items:
+            product = Product.objects.get(id = item['product']['id'])
+
+            orderItem = OrderItem.objects.create(
+                product = product,
+                order = order,
+                quantity = item['quantity']
+            )
 
     total = data['form']['total']
     order.transaction_id = transaction_id
@@ -102,10 +129,7 @@ def processOrder(request):
             zipcode = data['shipping']['zipcode'],
         )
 
-
-    # below line JsonResponse was in the tutorial
-    return JsonResponse('Your Payment Is Complete', safe=False) 
+    return JsonResponse('Payment Completed', safe=False) 
     
-    #above line working
-    # res = json.dumps({'success': 1,'msg': 'Payment Complete'})
-    # return HttpResponse(res,content_type='application/json')
+
+# 55.03
