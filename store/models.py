@@ -12,10 +12,21 @@ class Customer(models.Model):
     def __str__(self):
         return self.name or "Unnamed Customer"
     
+    
 
+class Category(models.Model):
+    name = models.CharField(default=False,null=True,blank=False,max_length=255)
+
+    def __str__(self):
+        return self.name
+    
 class Product(models.Model):
+
+    # categories = Category.objects.all()
     name = models.CharField(max_length=250, null=True)
     price = models.DecimalField(max_digits=7,decimal_places=2)
+    # category_id = models.CharField(default=False,null=True,blank=False,choices=) 
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)   
     digital = models.BooleanField(default=False, null=True,blank=False)  # if a product is digital then this field will be true
     image = models.ImageField(null=True,blank=True)
     # image = ResizedImageField(size=[300, 250], upload_to='whatever')

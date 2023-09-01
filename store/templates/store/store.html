@@ -63,19 +63,9 @@
 <!-- Featured End -->
 
     <div class="container-lg my-5">
-        <div class="row gy-4">
+        <div class="row gy-4" id="product_wrapper">
             {% for Product in products %}
-            <!-- <div class="col-lg-4">
-                <img class="thumbnail" src="{{Product.imageURL}}" alt="">
-                <div class="box-element product">
-                    <h6><strong>{{Product.name}}</strong></h6>
-                    <hr>
-                    <button class="btn btn-outline-secondary add-btn">Add To Cart</button>
-                    <a class="btn btn-outline-success" href="#">View</a>
-                    <h4 style="display: inline-block;float: right;">BDT {{Product.price|floatformat:2}} ৳</h4>
-                </div>
-            </div> -->
-            <!-- fixed part-->
+->
             <div class="col-md-4">
                 <div class="card h-100 box-element product">
                     <img class="card-img-top" src="{{Product.imageURL}}" class="img-fluid">
@@ -93,5 +83,38 @@
     </div>
     
 
+
+
 {% endblock content %}
 
+
+
+{% block script %}
+
+    
+<script>
+  // $(document).ready(function() {
+    debugger;
+      $.ajax({
+          url: '/fetch-products/',  // URL of your Django view
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            debugger;
+              // Handle the data received from the server
+              var products = data.products;
+  
+              // Do something with the products (e.g., display them on the page)
+              for (var i = 0; i < products.length; i++) {
+                  var product = products[i];
+                  console.log('Product Name: ' + product.name);
+                  console.log('Product Price: ' + product.price);
+              }
+          },
+          error: function(error) {
+              console.error('Error:', error);
+          }
+      });
+  // });
+  </script>
+{% endblock script %}

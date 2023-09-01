@@ -134,3 +134,8 @@ def processOrder(request):
     
 
 # 55.03
+
+def fetch_products(request):
+    products = Product.objects.all()
+    product_list = [{'name': product.name, 'price': product.price} for product in products]
+    return JsonResponse({'products': product_list})
