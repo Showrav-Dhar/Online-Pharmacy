@@ -17,6 +17,9 @@ def store(request):
     context = {'products': products, 'cartItems': cartItems}
     return render(request, 'store/store.html', context)
 
+def healthtips(request):#added by showrav
+    return render(request, 'store/healthtips.html')
+
 
 def cart(request):  
     data = cartData(request)

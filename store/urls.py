@@ -7,6 +7,7 @@ urlpatterns = [
     path('',views.store, name="Store"), # this is the home page
     path('cart/',views.cart, name="Cart"),
     path('checkout/',views.checkout, name="Checkout"),
+    path('healthtips/',views.healthtips, name="healthtips"),#added by showrav
     #try changing the name if everything works fine after running server
     path('update_item/',views.updateItem, name="update_item"),
     path('process_order/',views.processOrder, name="process_order"),
