@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 {% load static %}
+{% comment %} For fonts {% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
 
 <html lang="en">
 
@@ -92,17 +96,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <p class="brand_name"><span style="font-weight: bold; font-style: italic; font-size: 16px;">EDU MAD </span></p>
+            <p class="brand_name"><span style="font-weight: bold; font-family: 'Josefin Sans', sans-serif; font-style: italic; font-size: 16px;" href="{% url 'Store' %}" >EDU MED</span></p>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'Store' %}">STORE</a>
+            <a class="nav-link active" aria-current="page" style="font-family: 'Josefin Sans', sans-serif;" href="{% url 'Store' %}">STORE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#items">ITEM</a>
+            <a class="nav-link active" aria-current="page" style="font-family: 'Josefin Sans', sans-serif;" href="#items">ITEMS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" >BLOG</a>
+            <a class="nav-link active" aria-current="page" style="font-family: 'Josefin Sans', sans-serif;" href="{% url 'healthtips' %}">HEALTH TIPS</a>
           </li>
+
         </ul>
         <div class="py-0 mb-2 d-flex align-items-center justify-content-between">
           <!-- <a class="btn btn-outline-primary login_btn" href="#">Login</a> -->
