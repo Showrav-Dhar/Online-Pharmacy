@@ -18,7 +18,12 @@ def store(request):
     return render(request, 'store/store.html', context)
 
 def healthtips(request):#added by showrav
-    return render(request, 'store/healthtips.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+
+    context = {'data': data, 'cartItems': cartItems}
+
+    return render(request, 'store/healthtips.html', context)
 
 
 def cart(request):  
