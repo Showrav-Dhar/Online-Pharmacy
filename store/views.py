@@ -26,6 +26,13 @@ def healthtips(request):#added by showrav
     return render(request, 'store/healthtips.html', context)
 
 
+
+def items_view(request):
+    # Your view logic goes here
+    return render(request, 'store/#items/.html')  # Verify the template path
+
+
+
 def cart(request):  
     data = cartData(request)
     cartItems = data['cartItems']
@@ -75,7 +82,7 @@ def updateItem(request):
     if orderItem.quantity <= 0:
         orderItem.delete()
 
-    res = json.dumps({'success': 1,'msg': 'Item was added successfully!!'})
+    res = json.dumps({'success': 1,'msg': 'Item was added successfully!!','action':action})
     return HttpResponse(res,content_type='application/json')
 
 
@@ -143,7 +150,16 @@ def processOrder(request):
 
 # 55.03
 
-def fetch_products(request):
-    products = Product.objects.all()
-    product_list = [{'name': product.name, 'price': product.price} for product in products]
+def fetch_products(request,category_id):
+    if category_id == "all":
+        products = Product.objects.select_related('category').all()
+    else:
+        # products = Product.objects.get(category_id=category_id)
+        products = Product.objects.filter(category_id=category_id)
+    product_list = [{'id': product.id,'name': product.name, 'price': product.price,'imageURL': product.imageURL,'category': product.category.name} for product in products]
     return JsonResponse({'products': product_list})
+
+def fetch_category(request):
+    categories = Category.objects.all()
+    category_list = [{'name': category.name,'id' : category.id} for category in categories]
+    return JsonResponse({'categories': category_list})

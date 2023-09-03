@@ -32,42 +32,45 @@
   </button>
 </div>
 
- <!-- Featured Start -->
- <div class="container-fluid pt-5">
+<!-- Featured Start -->
+<div class="container-fluid pt-5">
   <div class="row px-xl-5 pb-3">
-      <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-          <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-            <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-            <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
-          </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
+        <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >Quality Product</h5>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-          <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-              <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
-              <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
-          </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
+        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+        <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >Free Shipping</h5>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-          <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-              <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-              <h5 class="font-weight-semi-bold m-0">7-Day Return</h5>
-          </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
+        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >7-Day Return</h5>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-          <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-              <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
-              <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
-          </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+      <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
+        <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >24/7 Support</h5>
       </div>
+    </div>
   </div>
 </div>
 <!-- Featured End -->
 
-<h3 id="items" style="text-align: center; font-size: 24px; font-weight: bold; color: #007bff; text-decoration: underline;">ITEMS</h3>
+<h3  id="items" class="stylish-text" style="font-family: 'Montserrat', sans-serif;" id="items">ITEMS</h3>
 
-    <div class="container-lg my-5">
-        <div class="row gy-4" id="product_wrapper">
-            {% for Product in products %}
+<div class="container-lg my-5">
+  <div class="row justify-content-center mb-3 g-3" id="category_wrapper">
+
+  </div>
+  <div class="row gy-4" id="product_wrapper">
+    <!-- {% for Product in products %}
             <div class="col-md-4">
                 <div class="card h-100 box-element product">
                     <img class="card-img-top" src="{{Product.imageURL}}" class="img-fluid">
@@ -79,73 +82,9 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-    </div>
-  
-
- <!-- Footer Start -->
- <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-  <div class="container py-5">
-      <div class="row g-5">
-          <div class="col-lg-3 col-md-6">
-              <h4 class="text-light mb-4">Address</h4>
-              <h5>
-              <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Currently Available at - Jamal Khan, Nasirabad, GEC</p>
-              <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+8801846464343</p>
-              <p class="mb-2"><i class="fa fa-envelope me-3"></i>edumed@gmail.com</p>
-              </h5>
-              <div class="d-flex pt-2">
-                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-              <h4 class="text-light mb-4">Opening Hours</h4>
-              <h5 class="text-light" style="text-align: middle;">24/7</h5>
-
-          </div>
-          <div class="col-lg-3 col-md-6">
-              <h4 class="text-light mb-4">Products We Sell</h4>
-              <a class="btn btn-link" href="">Medicine</a>
-              <a class="btn btn-link" href="">Medical Equipment</a>
-              <a class="btn btn-link" href="">Energy Drinks</a>
-          </div>
-          {% comment %} <div class="col-lg-3 col-md-6">
-              <h4 class="text-light mb-4">Newsletter</h4>
-              <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-              <div class="position-relative mx-auto" style="max-width: 400px;">
-                  <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                  <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-              </div>
-          </div>  {% endcomment %}
-      </div>
+            {% endfor %} -->
   </div>
-  <div class="container">
-      <div class="copyright">
-          <div class="row">
-              <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                  &copy; <a class="border-bottom" >EDU MED</a>, All Right Reserved.
-
-                  Designed By <a class="border-bottom"> RAHIDUR RAHMAN, SHOWRAV DHAR, LAMISA NIHAD</a>
-              </div>
-              <div class="col-md-6 text-center text-md-end">
-                  <div class="footer-menu">
-                      <a href="">Home</a>
-                      <a href="">Cookies</a>
-                      <a href="">Help</a>
-                      <a href="">FQAs</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <br>
-  <br>
 </div>
-<!-- Footer End -->
 
 
 
@@ -155,30 +94,141 @@
 
 {% block script %}
 
-    
+
 <script>
   // $(document).ready(function() {
-    debugger;
-      $.ajax({
-          url: '/fetch-products/',  // URL of your Django view
-          type: 'GET',
-          dataType: 'json',
-          success: function(data) {
-            debugger;
-              // Handle the data received from the server
-              var products = data.products;
   
-              // Do something with the products (e.g., display them on the page)
-              for (var i = 0; i < products.length; i++) {
-                  var product = products[i];
-                  console.log('Product Name: ' + product.name);
-                  console.log('Product Price: ' + product.price);
-              }
-          },
-          error: function(error) {
-              console.error('Error:', error);
-          }
+  getProducts();
+  function getProducts(category_id="all") {
+    $.ajax({
+      url: `/fetch-products/${category_id}`,  // URL of your Django view
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+    
+        // Handle the data received from the server
+        var products = data.products;
+
+        let product_list = "";
+        // Do something with the products (e.g., display them on the page)
+        for (var i = 0; i < products.length; i++) {
+          var product = products[i];
+          product_list +=
+            `<div class="col-md-4">
+                      <div class="card h-100 box-element product">
+                          <img class="card-img-top" src="${product.imageURL}" class="img-fluid">
+                          <div class="card-body">
+                            <h4 class="card-title">${product.name}</h4>
+                            <hr>
+                            <button type="button" data-product=${product.id} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add To Cart</button>
+                            <h4 style="display: inline-block;float: right;">BDT ${product.price} ৳</h4>
+                          </div>
+                      </div>
+                  </div>`;
+        }
+        document.getElementById("product_wrapper").innerHTML = product_list
+        var updateBtns = document.getElementsByClassName ('update-cart')
+        
+        function updateUserOrder(productId,action){
+            debugger;
+            console.log('User is logged in , Sending Data....')
+
+            var url = '/update_item/'
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json',
+                    'X-CSRFTOKEN': csrftoken,
+                },
+                body: JSON.stringify({'productId': productId,'action': action})
+            })
+
+            .then((response)=>{
+                return response.json()
+            })
+
+
+            .then((data)=>{
+                debugger;
+                console.log('data', data)
+                let cart_update_count = parseInt(document.getElementById('cart-total').innerText) + 1;
+                document.getElementById('cart-total').innerText = cart_update_count ;
+
+                // location.reload()
+            })
+
+            
+        }
+
+
+        for(var i = 0; i<updateBtns.length; i++){
+
+            updateBtns[i].addEventListener('click',function(){
+              debugger;
+                var productId = this.dataset.product
+                var action = this.dataset.action
+                console.log('Click event triggered for productId:',productId, 'action:', action)
+
+                console.log('USER : ',user)
+                if (user == 'AnonymousUser'){
+                    addCookieItem(productId,action)
+                }else{
+                    updateUserOrder(productId,action)
+                }
+            })
+        }
+      },
+      error: function (error) {
+        console.error('Error:', error);
+      }
+    });
+
+  }
+
+  $.ajax({
+    url: '/fetch-category/',  // URL of your Django view
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+
+      // Handle the data received from the server
+      var categories = data.categories;
+
+      let category_list = `<button type="button" class="btn btn-success col-md-3 category_btn"  data-category_id = "all">All</button>`;
+      // Do something with the products (e.g., display them on the page)
+      for (var i = 0; i < categories.length; i++) {
+        var category = categories[i];
+        category_list +=
+          `<button type="button" class="btn btn-success col-md-3 category_btn rounded-pill mb-2" data-category_id="${category.id}">
+  ${category.name}
+</button>`;
+      }
+      document.getElementById("category_wrapper").innerHTML = category_list
+
+      var elements = document.querySelectorAll(".category_btn");
+      console.log(elements);
+
+        // Add a click event listener to each element
+      elements.forEach(function(element) {
+          element.addEventListener("click", function() {
+              // Get the value of the data-category_id attribute for the clicked element
+              var category_id = element.getAttribute("data-category_id");
+
+              getProducts(category_id);
+
+              // Use the category_id value as needed
+              console.log("Category ID: " + category_id);
+          });
       });
+    },
+    error: function (error) {
+      console.error('Error:', error);
+    }
+  });
   // });
-  </script>
+
+  // Get references to all elements with the class "myElement"
+   
+</script>
 {% endblock script %}
