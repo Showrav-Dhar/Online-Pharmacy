@@ -17,7 +17,7 @@ While Working On the project we learned about UI/UX, how users interacts with a 
       _View_  : The View receives HTTP requests and sends HTTP responses. A view interacts with a model and template to complete a response.
       _Template_ : The Template is basically the front-end layer and the dynamic HTML component of a Django application.
             
-
+Demo Link - https://youtu.be/dzAabrwP0o4
 **PS : This project was made as a learning purpose and to explore how a fullstack project works.**
 
   
