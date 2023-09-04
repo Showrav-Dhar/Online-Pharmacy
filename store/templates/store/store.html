@@ -37,25 +37,25 @@
   <div class="row px-xl-5 pb-3">
     <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
       <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-        <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+        <h1 class="fa fa-check text-primary m-2 mr-3"></h1>
         <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >Quality Product</h5>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
       <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+        <h1 class="fa fa-shipping-fast text-primary m-2 mr-2"></h1>
         <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >Free Shipping</h5>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
       <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-        <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >7-Day Return</h5>
+        <h1 class="fas fa-exchange-alt text-primary m-2 mr-3"></h1>
+        <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" margin-right="1px" >7-Day Return</h5>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
       <div class="d-flex align-items-center border mb-4" style="padding: 40px;">
-        <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+        <h1 class="fa fa-phone-volume text-primary m-2 mr-3"></h1>
         <h5 class="font-weight-semi-bold m-0" style="font-family: 'Montserrat', sans-serif;" >24/7 Support</h5>
       </div>
     </div>
@@ -100,7 +100,7 @@
   
   getProducts();
   function getProducts(category_id="all") {
-    $.ajax({
+    $.ajax({ //api request for fetching product
       url: `/fetch-products/${category_id}`,  // URL of your Django view
       type: 'GET',
       dataType: 'json',
@@ -129,37 +129,68 @@
         document.getElementById("product_wrapper").innerHTML = product_list
         var updateBtns = document.getElementsByClassName ('update-cart')
         
-        function updateUserOrder(productId,action){
-            debugger;
-            console.log('User is logged in , Sending Data....')
+        // function updateUserOrder(productId,action){
+        //     debugger;
+        //     console.log('User is logged in , Sending Data....')
 
-            var url = '/update_item/'
+        //     var url = '/update_item/'
 
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type' : 'application/json',
-                    'X-CSRFTOKEN': csrftoken,
-                },
-                body: JSON.stringify({'productId': productId,'action': action})
-            })
+        //     fetch(url, {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type' : 'application/json',
+        //             'X-CSRFTOKEN': csrftoken,
+        //         },
+        //         body: JSON.stringify({'productId': productId,'action': action})
+        //     })
 
-            .then((response)=>{
-                return response.json()
-            })
+        //     .then((response)=>{
+        //         return response.json()
+        //     })
 
 
-            .then((data)=>{
-                debugger;
-                console.log('data', data)
-                let cart_update_count = parseInt(document.getElementById('cart-total').innerText) + 1;
-                document.getElementById('cart-total').innerText = cart_update_count ;
+        //     .then((data)=>{
+        //         debugger;
+        //         console.log('data', data)
+        //         let cart_update_count = parseInt(document.getElementById('cart-total').innerText) + 1;
+        //         document.getElementById('cart-total').innerText = cart_update_count ;
 
-                // location.reload()
-            })
+        //         location.reload()
+        //     })
 
             
-        }
+        // }
+
+
+function updateUserOrder(productId, action) {
+    debugger;
+    console.log('User is logged in, Sending Data....')
+
+    var url = '/update_item/'
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+            'X-CSRFTOKEN': csrftoken,
+        },
+        body: JSON.stringify({'productId': productId,'action': action})
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        debugger;
+        console.log('data', data)
+        
+        // Update the cart count on the page without reloading
+        let cart_update_count = parseInt(document.getElementById('cart-total').innerText) + 1;
+        document.getElementById('cart-total').innerText = cart_update_count;
+
+        // Remove location.reload() to prevent page reload
+        // location.reload()
+    });
+}
 
 
         for(var i = 0; i<updateBtns.length; i++){

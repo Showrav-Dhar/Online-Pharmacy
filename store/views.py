@@ -17,7 +17,7 @@ def store(request):
     context = {'products': products, 'cartItems': cartItems}
     return render(request, 'store/store.html', context)
 
-def healthtips(request):#added by showrav
+def healthtips(request):
     data = cartData(request)
     cartItems = data['cartItems']
 
@@ -27,9 +27,9 @@ def healthtips(request):#added by showrav
 
 
 
-def items_view(request):
-    # Your view logic goes here
-    return render(request, 'store/#items/.html')  # Verify the template path
+# def items_view(request):
+#     # Your view logic goes here
+#     return render(request, 'store/#items/.html')  # Verify the template path
 
 
 

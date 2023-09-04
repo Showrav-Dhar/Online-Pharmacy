@@ -437,13 +437,13 @@ body {
   
   /* Style changes on hover */
   .d-flex.align-items-center.border.mb-4:hover {
-	background-color: #52BD7F; /* Change the background color on hover */
+	background-color: #2aaf62; /* Change the background color on hover */
 	transform: scale(1.05); /* Slightly scale up the element on hover */
   }
   
   /* Style changes for the icon */
   .d-flex.align-items-center.border.mb-4:hover h1 {
-	color: #52BD7F; /* Change the icon color on hover */
+	color: #2aaf62; /* Change the icon color on hover */
   }
   
   /* Style changes for the text */
@@ -479,4 +479,6 @@ body {
     --bs-gradient: none;
 }
 
-/* last */
+.bg-dark {
+  background-color: #2aaf62 important;
+}

@@ -9,7 +9,7 @@ urlpatterns = [
     path('cart/',views.cart, name="Cart"),
     path('checkout/',views.checkout, name="Checkout"),
     path('healthtips/',views.healthtips, name="healthtips"),
-    path('#items/', views.items_view, name='items'),
+    # path('#items/', views.items_view, name='items'),
 
     #try changing the name if everything works fine after running server
     path('update_item/',views.updateItem, name="update_item"),

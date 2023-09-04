@@ -79,50 +79,76 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
-    <!--  modified dark navbar -->
-    <div class="container-fluid">
-      {% comment %} <a class="navbar-brand" href="{% url 'Store' %}">EDU MEDIX</a> {% endcomment %}
-      <a href="{% url 'Store' %}">
-            <div class="d-flex align-items-center justify-content-between">
-              <img id="cart-icon" src="{% static 'images/nav_pic.png' %}"  width="500" height="50"/>
-            </div>
-      </a> 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            {% comment %} <p class="brand_name"><span style="font-weight: bold; font-style: italic; font-size: 16px;">EDU MEDIX</span></p> {% endcomment %}
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" style="font-family: 'Montserrat', sans-serif;" href="{% url 'Store' %}">STORE</a>
-          </li>
-          <li class="nav-item">
-            <a  class="nav-link active" aria-current="page" style="font-family: 'Montserrat', sans-serif;" href="{% url 'Store' %}#items">ITEM</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"  style="font-family: 'Montserrat', sans-serif;" href="{% url 'healthtips' %}">HEALTH TIPS</a>
-          </li>
-        </ul>
-        <div class="py-0 mb-2 d-flex align-items-center justify-content-between">
-          <!-- <a class="btn btn-outline-primary login_btn" href="#">Login</a> -->
-
-          <a href="{% url 'Cart' %}">
-            <div class="d-flex align-items-center justify-content-between">
-              <img id="cart-icon" src="{% static 'images/cart.png' %}" />
-
-              <p id="cart-total">{{cartItems}}</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <!-- Your other head elements (meta tags, CSS links, etc.) -->
+      <style>
+          /* Add your navbar styles here */
+          .navbar-fixed {
+              position: fixed;
+              top: 0;
+              width: 100%;
+              z-index: 1000; /* Ensure the navbar is above other elements */
+          }
+      </style>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
+          <!-- modified dark navbar -->
+          <div class="container-fluid">
+              <a href="{% url 'Store' %}">
+                  <div class="d-flex align-items-center justify-content-between">
+                      <img id="cart-icon" src="{% static 'images/nav_pic.png' %}" width="500" height="50" />
+                  </div>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+  
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" style="font-family: 'Montserrat', sans-serif;"
+                              href="{% url 'Store' %}">STORE</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" style="font-family: 'Montserrat', sans-serif;"
+                              href="{% url 'Store' %}#items">ITEM</a>
+                      </li>
+  
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" style="font-family: 'Montserrat', sans-serif;"
+                              href="{% url 'healthtips' %}">HEALTH TIPS</a>
+                      </li>
+                  </ul>
+                  <div class="py-0 mb-2 d-flex align-items-center justify-content-between">
+                      <a href="{% url 'Cart' %}">
+                          <div class="d-flex align-items-center justify-content-between">
+                              <img id="cart-icon" src="{% static 'images/cart.png' %}" />
+  
+                              <p id="cart-total">{{cartItems}}</p>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+  
+      <script>
+          window.addEventListener("scroll", function () {
+              const navbar = document.querySelector(".navbar");
+              if (window.scrollY > 0) {
+                  navbar.classList.add("navbar-fixed");
+              } else {
+                  navbar.classList.remove("navbar-fixed");
+              }
+          });
+      </script>
+  </body>
+  </html>
+  
 
 
 

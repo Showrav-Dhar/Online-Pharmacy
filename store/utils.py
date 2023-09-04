@@ -9,9 +9,10 @@ def cookieCart(request):
         cart = {}
 
     print('cart')
-    items = []
-    order = {'get_cart_total': 0, 'get_cart_items': 0,'shipping':False}
-    cartItems = order['get_cart_items']
+    items = []# To see which items are bought a list is used
+    order = {'get_cart_total': 0, 'get_cart_items': 0,'shipping':False}# To see which items are bought and totals , 
+    #order - it is a dictionary[key,value]
+    cartItems = order['get_cart_items']#integer variable
 
     for i in cart:
         try:
